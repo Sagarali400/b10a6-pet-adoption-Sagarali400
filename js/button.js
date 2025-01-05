@@ -32,7 +32,11 @@ loadCategories();
 const loadCards = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((res) => res.json())
-    .then((data) => displayCards(data.pets))
+    .then((data) => {
+      petsDetailsCache = data.pets; // Save the fetched data to a variable
+      displayCards(petsDetailsCache)
+    })
+    
     .catch((error) => console.log(error));
 };
 const displayCards = (petsDetails) => {
@@ -88,6 +92,14 @@ const displayCards = (petsDetails) => {
     cardContainer.append(card);
   }
 };
+const sortByPrice = () => {
+  const sortedPets = [...petsDetailsCache].sort((a, b) => b.price - a.price); // Sort the pets by price descending
+  displayCards(sortedPets); // Re-render the sorted list
+};
+
+// Add an event listener for the "Sort by Price" button
+document.getElementById("sortByPriceBtn").addEventListener("click", sortByPrice);
+
 loadCards();
 const likeButtonDisplay = (image) => {
   const imageContain = document.getElementById("img-show");
@@ -114,12 +126,13 @@ const loadDetails = async (petId) => {
 const displayDetails = (detail) => {
   console.log(detail);
   const detailContainer = document.getElementById("modal-content");
+  
   detailContainer.innerHTML = `
   <img class="mx-auto" src=${detail.image}>
   <h1 class="font-bold text-2xl">${detail.pet_name}
   </h1>
   <div class="grid grid-cols-2">
-    <p class='flex text-base'><img src="https://img.icons8.com/?size=24&id=tt0XRccN77xf&format=png">Breed:${detail.breed}</p>
+    <p id="breed" class='flex text-base'><img src="https://img.icons8.com/?size=24&id=tt0XRccN77xf&format=png">Breed:${detail.breed}</p>
     <p class="flex text-base"><img src="https://img.icons8.com/?size=24&id=84997&format=png">Birth:${detail.date_of_birth}</p>
     <p class="flex text-base"><img width="32" height="32" src="https://img.icons8.com/windows/32/mercury.png" alt="mercury"/>Gender: ${detail.gender}</p>
     <p class="flex text-base"><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/us-dollar--v1.png" alt="us-dollar--v1"/>Price : ${detail.price}$</p>
