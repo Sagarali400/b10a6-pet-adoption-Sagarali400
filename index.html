@@ -7,6 +7,13 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active {
+            background-color: rgb(208, 255, 0);
+            color: white;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -30,31 +37,114 @@
         <div class="text-center">
             <h3 class="text-xl py-3">Bringing Families Together ❤️‍🔥</h3>
             <h1 class="lg:text-5xl md:text-3xl text-2xl font-bold">Your Path to Adoption <br> Starts Here</h1>
-           
-            <p class="text-xs lg:text-base py-3">It is a long established fact that a reader will be distracted by the readable content of a page when
+
+            <p class="text-xs lg:text-base py-3">It is a long established fact that a reader will be distracted by the
+                readable content of a page when
                 looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
         <div class="text-center"><button class="btn btn-success">View More</button></div>
         <div class=" flex justify-center  py-3">
-            
+
             <img class="" src="images/pet.webp" alt="">
         </div>
     </section>
     <section>
         <div class="text-center py-5">
-            <h1 class="font-bold text-xl lg:text-3xl">Adopt  Your  Best Friend</h1>
-            <p class="text-xs lg:text-base">It is a long established fact that a reader will be distracted by the readable content of a page <br> when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <h1 class="font-bold text-xl lg:text-3xl">Adopt Your Best Friend</h1>
+            <p class="text-xs lg:text-base">It is a long established fact that a reader will be distracted by the
+                readable content of a page <br> when looking at its layout. The point of using Lorem Ipsum is that it
+                has a.</p>
         </div>
-        <div id="button-container" class="text-center flex justify-around">
-            
+        <div id="button-container" class="text-center flex-wrap flex justify-around ">
+
         </div>
     </section>
-    <section class="w-11/12 lg:px-5 py-3">
+    <section class="w-11/12 px-2 lg:px-5  py-3">
         <div class="flex justify-between">
             <h3 class="font-bold text-xl">Best deal for you</h3>
             <button class="btn btn-outline btn-info">Sort by Price</button>
         </div>
+        <div class="flex lg:flex-row gap-2 flex-col">
+            <div id="card-container"
+                class="grid border rounded-lg border-blue-500 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:w-3/4">
+
+            </div>
+            <div class=" border rounded-lg border-blue-500 lg:w-1/4 p-8 pb-3" id="img-show">
+
+            </div>
+        </div>
+        </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <section>
+        <button class="btn" hidden onclick="customModal.showModal()">open modal</button>
+        <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="modal-content">
+
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-wide btn-info">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </section>
+
+    <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" hidden id="" onclick="customModal2.showModals()">open modal</button>
+        <dialog id="customModal2" class="modal">
+            <div class="modal-box">
+                <div id="modal-content2">
+                    <h1>aajk</h1>
+                </div>
+
+                <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
+                </form>
+        </dialog>
+    </section>
+
+
+    <footer class="footer bg-neutral text-neutral-content p-10">
+        <nav>
+            <h6 class="text-2xl flex gap-1"><img src="images/logo.webp" class="h-5 mt-2  items-center" alt=""> Peddy
+            </h6>
+            <p>Location: av. Washington 165, NY CA </p>
+            <p>54003</p>
+            <p>Phone: +31 85 964 47 25</p>
+            <p>Email: info@yourdomain.com</p>
+            <div class="flex gap-4">
+                <a href="#"><img width="40" height="40" src="https://img.icons8.com/fluency/50/facebook-circled.png"
+                        alt="facebook-circled" /></a>
+                <a href="#"><img width="32" height="32" src="https://img.icons8.com/windows/32/FFFFFF/twitterx.png"
+                        alt="twitterx" /></a>
+                <a href="#"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png"
+                        alt="youtube-play" /></a>
+                <a href=""><img width="48" height="48"
+                        src="https://img.icons8.com/sf-regular/48/FA5252/instagram-new.png" alt="instagram-new" /></a>
+            </div>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Useful Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">About us</a>
+
+            <a class="link link-hover">Animal</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Foundation</a>
+
+        </nav>
+        <nav>
+            <h6 class="footer-title">Drop a massage</h6>
+            <input type="text" placeholder="username@site.com" class="input input-bordered join-item" />
+            <button class="btn btn-primary join-item">Subscribe</button>
+        </nav>
+    </footer>
 
 
 
